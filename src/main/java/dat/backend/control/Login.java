@@ -22,13 +22,13 @@ import java.util.List;
 @WebServlet(name = "login", urlPatterns = {"/login"} )
 public class Login extends HttpServlet
 {
-    private ConnectionPool connectionPool;
+    private ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
-    @Override
-    public void init() throws ServletException
-    {
-        this.connectionPool = ApplicationStart.getConnectionPool();
-    }
+//    @Override
+//    public void init() throws ServletException
+//    {
+//        this.connectionPool = ApplicationStart.getConnectionPool();
+//    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {

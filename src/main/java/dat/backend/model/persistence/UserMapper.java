@@ -26,8 +26,9 @@ class UserMapper
                 ResultSet rs = ps.executeQuery();
                 if (rs.next())
                 {
-                    String role = rs.getString("role");
-                    user = new User(username, password, role);
+                    String accounttype = rs.getString("accounttype");
+                    double balance = rs.getDouble("balance");
+                    user = new User(username, password, accounttype,balance);
                 } else
                 {
                     throw new DatabaseException("Wrong username or password");

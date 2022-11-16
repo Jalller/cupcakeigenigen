@@ -22,7 +22,7 @@
 
     <h3>Opret bruger her</h3>
 
-    <form action="CreateUser" method="get">
+    <form action="CreateUser" method="post">
         <label for="username">Username: </label>
         <input type="text" id="username" name="username"/>
 

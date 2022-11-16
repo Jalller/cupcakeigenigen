@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/cupcakes</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="cupcakes@localhost [2]" uuid="f10977a9-d4d4-49c4-ac9b-caa33893aa9b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cupcakes</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
