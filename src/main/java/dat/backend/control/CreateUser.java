@@ -67,6 +67,9 @@ public class CreateUser extends HttpServlet {
                 session.setAttribute("user", user); // adding user object to session scope
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
+            else {
+                request.getRequestDispatcher("createuser.jsp").forward(request, response);
+            }
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

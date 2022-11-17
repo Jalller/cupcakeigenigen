@@ -31,8 +31,8 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">${sessionScope.user.username}</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/aboutus.jsp">Om os</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/shoppingcart">Indkøbskurv</a>
-
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/shoppingcart">Indkøbskurv
+                        (${sessionScope.cartsize})</a>
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>

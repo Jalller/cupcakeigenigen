@@ -38,9 +38,11 @@ public class AddToCart extends HttpServlet
         Bottom bottom = CupcakeFacade.getBottomById(bottomId, connectionPool);
 
         Cupcake cupcake = new Cupcake(top, bottom, quantity);
+        session.setAttribute("priceOrder",cart.priceOrder(cart,connectionPool));
         cart.add(cupcake);
         session.setAttribute("cart", cart);
         request.setAttribute("cartsize", cart.getNumberOfCupcakes());
+        session.setAttribute("cartsize",cart.getNumberOfCupcakes());
 
         request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
 

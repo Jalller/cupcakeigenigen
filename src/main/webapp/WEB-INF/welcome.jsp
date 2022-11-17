@@ -36,25 +36,26 @@
                 <option value="4">4</option>
                 <option value="4">5</option>
             </select>
-            <button class="btn btn-primary" name="addToCart">Add to cart</button>
+            <button class="btn btn-primary" name="addToCart">Tilføj til kurv</button>
         </form>
 
-        <h2>Antal linier i kurven: ${requestScope.cartsize}</h2>
+        <p>Antal linier i kurven: ${requestScope.cartsize}</p>
 
-        <h2>Indhold i kurv:</h2>
+        <h3>Indhold i kurv:</h3>
 
         <table class="table table-striped">
+
             <tr>
                 <th>Top</th>
                 <td>
                     <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-                        <br>TopId: ${item.top.id} name: ${item.top.name} </c:forEach>
+                        <br>Type: ${item.top.name} Price: ${item.top.price} </c:forEach>
                 </td>
 
-                <th>Bottom</th>
+                <th>Bund</th>
                 <td>
                     <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-                        <br>BottomId: ${item.bottom.id} Name: ${item.bottom.name}
+                        <br>Type: ${item.bottom.name} Price: ${item.bottom.price}
                     </c:forEach>
                 </td>
 
@@ -65,9 +66,11 @@
                     </c:forEach>
                 </td>
             </tr>
+            <p>Pris ordre: </p>
+
         </table>
         </table>
-        <p class="mt-4"><a class="btn btn-primary" href="order">Udfør bestilling</a></p>
+        <p class="mt-4"><a class="btn btn-primary" href="order">Bestil indkøbskurv</a></p>
 
 
     </jsp:body>
