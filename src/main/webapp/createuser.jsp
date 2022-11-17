@@ -25,13 +25,18 @@
     <form action="CreateUser" method="post">
         <label for="username">Username: </label>
         <input type="text" id="username" name="username"/>
-
+        <br>
         <label for="password">Password: </label>
         <input type="password" id="password" name="password"/>
 
+
+        <label for="repeatpassword">Repeat Password: </label>
+        <input type="repeatpassword" id="repeatpassword" name="repeatpassword"/>
+        <br>
+
         <label for="accounttype">Accounttype: </label>
         <input type="accounttype" id="accounttype" name="accounttype"/>
-
+        <br>
         <label for="balance">balance: </label>
         <input type="balance" id="balance" name="balance"/>
 

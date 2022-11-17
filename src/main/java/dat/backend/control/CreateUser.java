@@ -24,10 +24,10 @@ public class CreateUser extends HttpServlet {
     private static ConnectionPool connectionPool;
 
     @Override
-    public void init() throws ServletException
-    {
+    public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -38,7 +38,7 @@ public class CreateUser extends HttpServlet {
         double balance = Double.parseDouble(request.getParameter("balance"));
 
         try {
-            User user = UserFacade.createUser(username, password, role,balance, connectionPool);
+            User user = UserFacade.createUser(username, password, role, balance, connectionPool);
             request.setAttribute("user", user); // adding user object to session scope
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
         } catch (DatabaseException e) {
@@ -49,7 +49,6 @@ public class CreateUser extends HttpServlet {
     }
 
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -57,14 +56,17 @@ public class CreateUser extends HttpServlet {
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String repeatpassword = request.getParameter("repeatpassword");
         String accounttype = request.getParameter("accounttype");
         double balance = Double.parseDouble(request.getParameter("balance"));
 
         try {
-            User user = UserFacade.createUser(username, password, accounttype, balance, connectionPool);
-            session = request.getSession();
-            session.setAttribute("user", user); // adding user object to session scope
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            if (password.equals(repeatpassword)) {
+                User user = UserFacade.createUser(username, password, accounttype, balance, connectionPool);
+                session = request.getSession();
+                session.setAttribute("user", user); // adding user object to session scope
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
