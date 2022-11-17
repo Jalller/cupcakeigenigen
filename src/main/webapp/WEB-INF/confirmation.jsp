@@ -16,12 +16,10 @@
 
         <h1>Kvittering</h1>
 
-       <p>Tak for din bestilling. Du kan hente den om 1 time i Olsker.</p>
+        <p>Tak for din bestilling. Du kan hente den om 1 time i Olsker.</p>
 
 
-        <h3>Indhold i kurv:</h3>
-
-        ${cart}
+        <h3>Bestilling:</h3>
 
 
         <table class="table table-striped">
@@ -29,13 +27,14 @@
                 <th>Top</th>
                 <td>
                     <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-                        <br>Type: ${item.top.name} Price: ${item.top.price} </c:forEach>
+                        <br>Type: ${item.top.name} Pris: ${item.top.price}
+                    </c:forEach>
                 </td>
 
                 <th>Bund</th>
                 <td>
                     <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-                        <br>Type: ${item.bottom.name} Price: ${item.bottom.price}
+                        <br>Type: ${item.bottom.name} Pris: ${item.bottom.price}
                     </c:forEach>
                 </td>
 
@@ -50,6 +49,7 @@
         </table>
 
 
+        <br><a href="index.jsp">Tilbage til forside</a>
 
     </jsp:body>
 

@@ -1,6 +1,8 @@
 package dat.backend.model.entities;
 
+import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.CupcakeMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +13,7 @@ import java.util.List;
 
 public class ShoppingCart
 {
+    ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
     private List<Cupcake> cupcakeList = new ArrayList<>();
 
     public ShoppingCart()
@@ -25,6 +28,11 @@ public class ShoppingCart
     public int getNumberOfCupcakes() //få antal ordrer
     {
         return cupcakeList.size();
+    }
+
+    public Object seeOrderLines(){
+        CupcakeMapper.seeOrderlines(connectionPool);
+        return null;
     }
 
     public List<Cupcake> getCupcakeList()

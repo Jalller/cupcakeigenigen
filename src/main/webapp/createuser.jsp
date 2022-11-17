@@ -23,26 +23,26 @@
     <h3>Opret bruger her</h3>
 
     <form action="CreateUser" method="post">
-        <label for="username">Username: </label>
+        <label class="formular" for="username">Brugernavn: </label>
         <input type="text" id="username" name="username"/>
         <br>
-        <label for="password">Password: </label>
+        <label class="formular" for="password">Kodeord: </label>
         <input type="password" id="password" name="password"/>
-
-
-        <label for="repeatpassword">Repeat Password: </label>
+        <br>
+        <label class="formular" for="repeatpassword">Gentag kodeord: </label>
         <input type="repeatpassword" id="repeatpassword" name="repeatpassword"/>
         <br>
-
-        <label for="accounttype">Accounttype: </label>
+        <label class="formular" for="accounttype">Brugertype: </label>
         <input type="accounttype" id="accounttype" name="accounttype"/>
         <br>
-        <label for="balance">balance: </label>
+        <label class="formular" for="balance">Balance: </label>
         <input type="balance" id="balance" name="balance"/>
-
-
+        <br>
         <input type="submit" value="Opret"/>
     </form>
+
+    <br>
+    <a href="index.jsp">Tilbage til forside</a>
 
     </body>
     </html>

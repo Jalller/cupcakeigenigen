@@ -1,10 +1,14 @@
 package dat.backend.model.persistence;
 
+import dat.backend.control.Order;
 import dat.backend.model.entities.*;
+import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CupcakeMapper {
 
@@ -136,7 +140,7 @@ public class CupcakeMapper {
         }
     }
 
-    public int priceOrder(int orderId, ShoppingCart cart, ConnectionPool connectionPool){
+    public int priceOrder(int orderId, ShoppingCart cart, ConnectionPool connectionPool) {
         int price = 0;
         String sql = "insert into order_lines (" +
                 "order_id, top_id, bottom_id, " +
@@ -153,7 +157,7 @@ public class CupcakeMapper {
                     ps.setInt(6, cupcake.getQuantity());
                     ps.executeUpdate();
 
-                    price = (int) (cupcake.getTop().getPrice()+cupcake.getBottom().getPrice()*(cupcake.getQuantity()));
+                    price = (int) (cupcake.getTop().getPrice() + cupcake.getBottom().getPrice() * (cupcake.getQuantity()));
 
                 }
             }
@@ -163,12 +167,12 @@ public class CupcakeMapper {
         return price;
     }
 
-    public double getTotalPrice(int order_line_id,List<ShoppingCart> cart) {
+    public double getTotalPrice(int order_line_id, List<ShoppingCart> cart) {
         double price = 0;
         try {
 
             if (cart.size() > 0) {
-                for (ShoppingCart item:cart) {
+                for (ShoppingCart item : cart) {
 
                     String sql = "select * from order_lines where order_line_id = ?";
 
@@ -179,7 +183,7 @@ public class CupcakeMapper {
                     ps.setInt(1, order_line_id);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
-                        price +=rs.getDouble("price")*item.getNumberOfCupcakes();
+                        price += rs.getDouble("price") * item.getNumberOfCupcakes();
                     }
                 }
             }
@@ -190,4 +194,29 @@ public class CupcakeMapper {
         return price;
     }
 
+    public static int seeOrderlines(ConnectionPool connectionPool) {
+        Logger.getLogger("web").log(Level.INFO, "");
+        User user;
+        String sql = "Select * from order_lines";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int order_line_id = rs.getInt("order_line_id");
+                    int order_id = rs.getInt("order_id");
+                    int top_id = rs.getInt("top_id");
+                    int bottom_id = rs.getInt("bottom_id");
+                    int top_price = rs.getInt("top_price");
+                    int bottom_price = rs.getInt("bottom_price");
+                    int quantity = rs.getInt("quantity");
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return 1;
+    }
 }
+
+
+

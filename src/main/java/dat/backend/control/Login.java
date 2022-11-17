@@ -47,6 +47,11 @@ public class Login extends HttpServlet
         try
         {
             User user = UserFacade.login(username, password, connectionPool);
+
+            if (user.getAccounttype().equals("admin")){
+                request.getRequestDispatcher("WEB-INF/adminsite.jsp").forward(request, response);
+            }
+
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
             ShoppingCart cart = new ShoppingCart();

@@ -27,7 +27,7 @@ public class Order extends HttpServlet
         // Create orderlines with the orderId
         CupcakeFacade.insertOrderLines(orderId, cart, connectionPool);
         // Empty shopping cart
-        cart.resetCart();
+        //cart.resetCart();
         session.setAttribute("cart", cart);
         // Return to confirmation page
         request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);

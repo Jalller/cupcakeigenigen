@@ -49,13 +49,13 @@
                 <th>Top</th>
                 <td>
                     <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-                        <br>Type: ${item.top.name} Price: ${item.top.price} </c:forEach>
+                        <br>Type: ${item.top.name} Pris: ${item.top.price} </c:forEach>
                 </td>
 
                 <th>Bund</th>
                 <td>
                     <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-                        <br>Type: ${item.bottom.name} Price: ${item.bottom.price}
+                        <br>Type: ${item.bottom.name} Pris: ${item.bottom.price}
                     </c:forEach>
                 </td>
 
@@ -66,12 +66,13 @@
                     </c:forEach>
                 </td>
             </tr>
-            <p>Pris ordre: </p>
-
+            <p>Pris ordre:  </p>
         </table>
         </table>
         <p class="mt-4"><a class="btn btn-primary" href="order">Bestil indkøbskurv</a></p>
 
+        <br>
+        <a href="index.jsp">Tilbage til forside</a>
 
     </jsp:body>
 

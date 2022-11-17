@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/olskercupcakes.png" width="400px;" class="img-fluid"/>
+                <img src="${pageContext.request.contextPath}/images/olskercupcakes.png" width="600px;" class="img-fluid"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log ud</a>
                     </c:if>
                 </div>
             </div>
@@ -60,11 +60,11 @@
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>
-            <p>&copy; Olsker Cupcake</p>
+            <p>&copy; Olsker Cupcakes</p>
         </div>
         <div class="col">
             Telefon:20123456<br/>
-            Email: Olskercupcakesupport@mail.com
+            Email: Olskercupcakes@mail.com
         </div>
     </div>
 

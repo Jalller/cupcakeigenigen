@@ -15,16 +15,18 @@
 
     <jsp:body>
 
-        <h3>You can log in here</h3>
-
         <form action="login" method="post">
-            <label for="username">Username: </label>
+            <label class="formular" for="username">Brugernavn: </label>
             <input type="text" id="username" name="username"/>
-            <label for="password">Password: </label>
+            <br>
+            <label class="formular" for="password">Kodeord: </label>
             <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+            <br>
+            <input type="submit" value="Login"/>
         </form>
 
+        <br>
+        <a href="index.jsp">Tilbage til forside</a>
 
     </jsp:body>
 </t:pagetemplate>

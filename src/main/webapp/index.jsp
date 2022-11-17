@@ -5,19 +5,23 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Osker Cupcake
+         Velkommen til Osker Cupcakes
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Olsker Cupcake
+        Olsker Cupcakes
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>Log venligst på systemet først</p>
-        <p>Derefter kan du shoppe løs</p>
-        <p>Det kan du gøre her: <a href="login.jsp">login</a></p>
-        <p> Opret bruger her: <a href="createuser.jsp">opret </a></p>
+        <br>
+        <br>
+        <h5>Login eller opret bruger for at bestille</h5>
+        <br>
+        <b></b>
+        <p>Login her: <a href="login.jsp">Login</a></p>
+        <p>Opret bruger her: <a href="createuser.jsp">Opret Bruger </a></p>
+        <p>Læs om hvem vi er her: <a href="aboutus.jsp">Om os</a></p>
 
 
     </jsp:body>
